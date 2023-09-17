@@ -3,13 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerLocalController : MonoBehaviour
+public class PlayerControllerBase : MonoBehaviour
 {
     protected PlayerStateMachine _playerStateMachine;
 
 
     protected void OnAwake()
     {
-        _playerStateMachine = GetComponent<PlayerStateMachine>();
+        _playerStateMachine = transform.root.GetComponent<PlayerStateMachine>();
     }
 }

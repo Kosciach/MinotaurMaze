@@ -57,5 +57,6 @@ namespace PlayerStateMachineSystem
     {
         public PlayerInputController Input;
         public PlayerMovementController Movement;
+        public PlayerFlashlightController Flashlight;
     }
 }

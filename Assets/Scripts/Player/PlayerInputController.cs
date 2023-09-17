@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInputController : PlayerLocalController
+public class PlayerInputController : PlayerControllerBase
 {
     private PlayerInputs _inputs;
 
@@ -13,7 +13,7 @@ public class PlayerInputController : PlayerLocalController
 
     protected void Awake()
     {
-        base.OnAwake();
+        OnAwake();
 
         _inputs = new PlayerInputs();
     }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class PlayerMovementController : PlayerLocalController
+public class PlayerMovementController : PlayerControllerBase
 {
     [Header("====Settings====")]
     [Range(0, 10)]
@@ -19,7 +19,7 @@ public class PlayerMovementController : PlayerLocalController
 
     protected void Awake()
     {
-        base.OnAwake();
+        OnAwake();
 
         _rigidbody = GetComponent<Rigidbody2D>();
     }
