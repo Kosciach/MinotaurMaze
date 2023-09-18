@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using PlayerControllers;
 
 namespace PlayerStateMachineSystem
 {
@@ -15,7 +16,8 @@ namespace PlayerStateMachineSystem
 
         [Space(20)]
         [Header("====References====")]
-        [SerializeField] PlayerLocalControllers _playerLocalControllers; public PlayerLocalControllers PlayerLocalControllers { get { return _playerLocalControllers; } }
+        [SerializeField] Animator _animator; public Animator Animator { get { return _animator; } }
+        [SerializeField] PlayerControllers _playerControllers; public PlayerControllers PlayerControllers { get { return _playerControllers; } }
 
 
 
@@ -31,6 +33,10 @@ namespace PlayerStateMachineSystem
         {
             _currentState.Update();
             _currentState.CheckStateChange();
+        }
+        private void LateUpdate()
+        {
+            _currentState.LateUpdate();
         }
         private void FixedUpdate()
         {
@@ -53,10 +59,12 @@ namespace PlayerStateMachineSystem
     }
 
     [System.Serializable]
-    public struct PlayerLocalControllers
+    public struct PlayerControllers
     {
         public PlayerInputController Input;
         public PlayerMovementController Movement;
         public PlayerFlashlightController Flashlight;
+        public PlayerRotationController Rotation;
+        public PlayerFlipController Flip;
     }
 }

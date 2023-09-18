@@ -19,6 +19,7 @@ namespace PlayerStateMachineSystem
 
         public abstract void Enter();
         public virtual void Update() { }
+        public virtual void LateUpdate() { }
         public virtual void FixedUpdate() { }
         public abstract void CheckStateChange();
         public abstract void Exit();
