@@ -10,7 +10,7 @@ namespace Maze
     public class MazeGenerator : MonoBehaviour
     {
         [Header("====Debugs====")]
-        [SerializeField] List<MazeRoomRow> _mazeRoomRows;
+        [SerializeField] List<MazeRoomRow> _mazeRoomRows; public List<MazeRoomRow> MazeRoomRows { get { return _mazeRoomRows; } }
 
 
         [Space(20)]

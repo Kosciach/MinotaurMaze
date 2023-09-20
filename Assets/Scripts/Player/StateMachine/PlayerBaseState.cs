@@ -25,7 +25,7 @@ namespace PlayerStateMachineSystem
         public abstract void Exit();
 
 
-        protected void StateChange(PlayerBaseState newState)
+        protected void ChangeState(PlayerBaseState newState)
         {
             _ctx.CurrentState.Exit();
             _ctx.CurrentState = newState;

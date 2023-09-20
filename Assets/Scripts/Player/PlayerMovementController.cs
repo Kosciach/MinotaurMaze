@@ -42,5 +42,13 @@ namespace PlayerControllers
         {
             _playerStateMachine.Animator.SetFloat("PlayerVelocity", _playerStateMachine.Controllers.Input.MovementInputVector.magnitude);
         }
+
+
+        public void Stop()
+        {
+            _currentMovement = Vector3.zero;
+            _currentVelocityRef = Vector3.zero;
+            _rigidbody.velocity = Vector3.zero;
+        }
     }
 }

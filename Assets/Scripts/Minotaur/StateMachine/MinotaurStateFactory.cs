@@ -23,5 +23,9 @@ namespace MinotaurStateMachineSystem
         {
             return new MinotaurState_Stun(_minotaurStateMachine, this);
         }
+        public MinotaurBaseState GameOver()
+        {
+            return new MinotaurState_GameOver(_minotaurStateMachine, this);
+        }
     }
 }

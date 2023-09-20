@@ -19,5 +19,9 @@ namespace PlayerStateMachineSystem
         {
             return new PlayerState_Main(_playerStateMachine, this);
         }
+        public PlayerBaseState GameOver()
+        {
+            return new PlayerState_GameOver(_playerStateMachine, this);
+        }
     }
 }

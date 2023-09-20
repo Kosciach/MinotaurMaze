@@ -13,7 +13,7 @@ namespace MinotaurStateMachineSystem
         private MinotaurStateFactory _stateFactory; public MinotaurStateFactory StateFactory { get { return _stateFactory; } }
 
         [Header("====StateMachine====")]
-        [SerializeField] StateSwitches _stateSwitches;
+        [SerializeField] StateSwitches _stateSwitch; public StateSwitches StateSwitch { get { return _stateSwitch; } }
 
 
         [Space(20)]
@@ -28,7 +28,7 @@ namespace MinotaurStateMachineSystem
         {
             _stateFactory = new MinotaurStateFactory(this);
 
-            _stateSwitches = StateSwitches.Chase;
+            _stateSwitch = StateSwitches.Chase;
             _currentState = _stateFactory.Chase();
             _currentState.Enter();
         }
@@ -52,14 +52,14 @@ namespace MinotaurStateMachineSystem
 
         public void SetStateSwitch(StateSwitches stateSwitch)
         {
-            _stateSwitches = stateSwitch;
+            _stateSwitch = stateSwitch;
         }
     }
 
 
     public enum StateSwitches
     {
-        Chase, Stun
+        Chase, Stun, GameOver
     }
 
     [System.Serializable]

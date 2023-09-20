@@ -25,7 +25,7 @@ namespace MinotaurStateMachineSystem
         public abstract void Exit();
 
 
-        protected void StateChange(MinotaurBaseState newState)
+        protected void ChangeState(MinotaurBaseState newState)
         {
             _ctx.CurrentState.Exit();
             _ctx.CurrentState = newState;

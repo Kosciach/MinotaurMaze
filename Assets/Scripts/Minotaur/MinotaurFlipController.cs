@@ -12,18 +12,11 @@ namespace MinotaurControllers
         private void Awake()
         {
             OnAwake();
-
         }
 
 
 
-        private void Update()
-        {
-            ControllFlipX();
-        }
-
-
-        private void ControllFlipX()
+        public void CheckFlip()
         {
             Vector3 currentPosition = transform.root.position;
 

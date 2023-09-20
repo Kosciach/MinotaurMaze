@@ -12,7 +12,7 @@ namespace PlayerStateMachineSystem
         private PlayerStateFactory _stateFactory; public PlayerStateFactory StateFactory { get { return _stateFactory; } }
 
         [Header("====StateMachine====")]
-        [SerializeField] StateSwitches _stateSwitches;
+        [SerializeField] StateSwitches _stateSwitch; public StateSwitches StateSwitch { get { return _stateSwitch; } }
 
 
         [Space(20)]
@@ -27,7 +27,7 @@ namespace PlayerStateMachineSystem
         {
             _stateFactory = new PlayerStateFactory(this);
 
-            _stateSwitches = StateSwitches.Main;
+            _stateSwitch = StateSwitches.Main;
             _currentState = _stateFactory.Main();
             _currentState.Enter();
         }
@@ -51,13 +51,13 @@ namespace PlayerStateMachineSystem
 
         public void SetStateSwitch(StateSwitches stateSwitch)
         {
-            _stateSwitches = stateSwitch;
+            _stateSwitch = stateSwitch;
         }
     }
 
     public enum StateSwitches
     { 
-        Main
+        Main, GameOver
     }
 
     [System.Serializable]

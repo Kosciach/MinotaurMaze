@@ -15,7 +15,7 @@ namespace MinotaurStateMachineSystem
         }
         public override void CheckStateChange()
         {
-
+            if (_ctx.StateSwitch == StateSwitches.GameOver) ChangeState(_factory.GameOver());
         }
         public override void Exit()
         {
