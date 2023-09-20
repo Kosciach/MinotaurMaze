@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using PlayerControllers;
+using MinotaurStateMachineSystem;
 
 namespace PlayerStateMachineSystem
 {
@@ -17,7 +18,8 @@ namespace PlayerStateMachineSystem
         [Space(20)]
         [Header("====References====")]
         [SerializeField] Animator _animator; public Animator Animator { get { return _animator; } }
-        [SerializeField] PlayerControllers _playerControllers; public PlayerControllers PlayerControllers { get { return _playerControllers; } }
+        [SerializeField] MinotaurStateMachine _minotaurStateMachine; public MinotaurStateMachine MinotaurStateMachine { get { return _minotaurStateMachine; } }
+        [SerializeField] Controllers _controllers; public Controllers Controllers { get { return _controllers; } }
 
 
 
@@ -59,12 +61,14 @@ namespace PlayerStateMachineSystem
     }
 
     [System.Serializable]
-    public struct PlayerControllers
+    public struct Controllers
     {
         public PlayerInputController Input;
         public PlayerMovementController Movement;
         public PlayerFlashlightController Flashlight;
         public PlayerRotationController Rotation;
         public PlayerFlipController Flip;
+        public PlayerMinotaurDetector MinotaurDetector;
+        public PlayerWalkParticleController WalkParticle;
     }
 }

@@ -25,7 +25,7 @@ namespace PlayerControllers
 
         public void RotateToMouse()
         {
-            _target = Vector3.Lerp(_target, _playerStateMachine.PlayerControllers.Input.MouseWorldPosition, _lookAtTargetSpeed * 2 * Time.deltaTime);
+            _target = Vector3.Lerp(_target, _playerStateMachine.Controllers.Input.MouseWorldPosition, _lookAtTargetSpeed * 2 * Time.deltaTime);
 
             float diffX = _target.x - transform.position.x;
             float diffY = _target.y - transform.position.y;

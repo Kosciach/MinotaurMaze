@@ -15,7 +15,7 @@ namespace PlayerControllers
 
 
         private Rigidbody2D _rigidbody;
-        private Vector3 _currentMovement = Vector3.zero;
+        private Vector3 _currentMovement = Vector3.zero; public Vector3 CurrentMovement { get { return _currentMovement; } }
         private Vector3 _currentVelocityRef = Vector3.zero;
 
 
@@ -31,7 +31,7 @@ namespace PlayerControllers
 
         public void Move()
         {
-            Vector3 inputVector = _playerStateMachine.PlayerControllers.Input.MovementInputVector;
+            Vector3 inputVector = _playerStateMachine.Controllers.Input.MovementInputVector;
             Vector3 targetedMovement = (Vector3.right * inputVector.x + Vector3.up * inputVector.z) * _speed * 10 * Time.deltaTime;
             _currentMovement = Vector3.SmoothDamp(_currentMovement, targetedMovement, ref _currentVelocityRef, _smoothTime * 10 * Time.deltaTime);
             _rigidbody.velocity = _currentMovement;
@@ -40,7 +40,7 @@ namespace PlayerControllers
         }
         private void SetPlayerAnimation()
         {
-            _playerStateMachine.Animator.SetFloat("PlayerVelocity", _playerStateMachine.PlayerControllers.Input.MovementInputVector.magnitude);
+            _playerStateMachine.Animator.SetFloat("PlayerVelocity", _playerStateMachine.Controllers.Input.MovementInputVector.magnitude);
         }
     }
 }

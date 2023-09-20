@@ -15,15 +15,17 @@ namespace PlayerStateMachineSystem
         }
         public override void Update()
         {
-            _ctx.PlayerControllers.Flip.CheckFlip();
+            _ctx.Controllers.Flip.CheckFlip();
+            _ctx.Controllers.WalkParticle.CheckIfShouldPlay();
+            _ctx.Controllers.MinotaurDetector.CheckForMinotaur();
         }
         public override void LateUpdate()
         {
-            _ctx.PlayerControllers.Rotation.RotateToMouse();
+            _ctx.Controllers.Rotation.RotateToMouse();
         }
         public override void FixedUpdate()
         {
-            _ctx.PlayerControllers.Movement.Move();
+            _ctx.Controllers.Movement.Move();
         }
         public override void CheckStateChange()
         {
