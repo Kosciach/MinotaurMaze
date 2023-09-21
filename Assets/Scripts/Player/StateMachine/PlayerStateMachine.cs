@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using PlayerControllers;
+using PlayerControllers.AbilitiesSystem;
 using MinotaurStateMachineSystem;
 
 namespace PlayerStateMachineSystem
@@ -70,5 +71,6 @@ namespace PlayerStateMachineSystem
         public PlayerFlipController Flip;
         public PlayerMinotaurDetector MinotaurDetector;
         public PlayerWalkParticleController WalkParticle;
+        public PlayerAbilitiesController Abilities;
     }
 }

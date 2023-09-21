@@ -33,6 +33,6 @@ public class PortalController : MonoBehaviour
 
         _playerStateMachine.SetStateSwitch(PlayerStateMachineSystem.StateSwitches.GameOver);
         _playerStateMachine.MinotaurStateMachine.SetStateSwitch(MinotaurStateMachineSystem.StateSwitches.GameOver);
-        FaderController.Instance.FadeAndChangeScene("PlayerWinScene");
+        SceneFaderController.Instance.FadeAndChangeScene("PlayerWinScene");
     }
 }

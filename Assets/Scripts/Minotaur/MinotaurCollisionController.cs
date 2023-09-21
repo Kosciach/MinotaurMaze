@@ -18,6 +18,6 @@ public class MinotaurCollisionController : MinotaurControllerBase
 
         _minotaurStateMachine.PlayerStateMachine.SetStateSwitch(PlayerStateMachineSystem.StateSwitches.GameOver);
         _minotaurStateMachine.SetStateSwitch(MinotaurStateMachineSystem.StateSwitches.GameOver);
-        FaderController.Instance.FadeAndChangeScene("MinotaurWinScene");
+        SceneFaderController.Instance.FadeAndChangeScene("MinotaurWinScene");
     }
 }

@@ -1,3 +1,4 @@
+using AYellowpaper.SerializedCollections;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -9,15 +10,23 @@ public class AudioController : MonoBehaviour
     public static AudioController Instance;
 
     [Header("====References====")]
-    [SerializeField] AudioSource _musicAudio;
-    [SerializeField] AudioSource _soundsAudio;
-    [Space(5)]
-    [SerializeField] Slider _musicSlider;
-    [SerializeField] Slider _soundsSlider;
+    [SerializeField] AudioSource _musicSource;
+    [SerializeField] AudioSource _soundsSource;
+    
 
     [Space(20)]
     [Header("====Debugs====")]
     [SerializeField] AudioSettings _audioSettings;
+
+
+    [Space(20)]
+    [Header("====Settings====")]
+    [SerializedDictionary("SoundName", "Sound")]
+    [SerializeField] SerializedDictionary<string, AudioClip> _sounds;
+
+
+    private Slider _musicSlider;
+    private Slider _soundsSlider;
 
 
 
@@ -30,9 +39,8 @@ public class AudioController : MonoBehaviour
         }
         else Destroy(gameObject);
 
-
-        _musicAudio = GameObject.FindGameObjectWithTag("Music").GetComponent<AudioSource>();
-        _soundsAudio = GameObject.FindGameObjectWithTag("Sounds").GetComponent<AudioSource>();
+        _musicSlider = GameObject.FindGameObjectWithTag("MusicSlider").GetComponent<Slider>();
+        _soundsSlider = GameObject.FindGameObjectWithTag("SoundsSlider").GetComponent<Slider>();
 
         if (File.Exists(Application.dataPath + "/AudioSettings.json")) LoadSettings();
         else
@@ -41,8 +49,8 @@ public class AudioController : MonoBehaviour
             _audioSettings.SoundsVolume = 0.5f;
             SaveSettings();
 
-            _musicAudio.volume = _audioSettings.MusicVolume;
-            _soundsAudio.volume = _audioSettings.SoundsVolume;
+            _musicSource.volume = _audioSettings.MusicVolume;
+            _soundsSource.volume = _audioSettings.SoundsVolume;
 
             _musicSlider.value = _audioSettings.MusicVolume;
             _soundsSlider.value = _audioSettings.SoundsVolume;
@@ -50,22 +58,23 @@ public class AudioController : MonoBehaviour
     }
 
 
-    public void ChangeMusicVolume(Slider choosenSlider)
+    public void ChangeMusicVolume(Slider slider)
     {
-        _audioSettings.MusicVolume = choosenSlider.value;
-        _musicAudio.volume = _audioSettings.MusicVolume;
+        _audioSettings.MusicVolume = slider.value;
+        _musicSource.volume = _audioSettings.MusicVolume;
         SaveSettings();
     }
-    public void ChangeSoundVolume(Slider choosenSlider)
+    public void ChangeSoundVolume(Slider slider)
     {
-        _audioSettings.SoundsVolume = choosenSlider.value;
-        _soundsAudio.volume = _audioSettings.SoundsVolume;
+        _audioSettings.SoundsVolume = slider.value;
+        _soundsSource.volume = _audioSettings.SoundsVolume;
         SaveSettings();
     }
 
-    public void PlayButtonSound()
+    public void PlaySound(string soundName)
     {
-        _soundsAudio.Play();
+        _soundsSource.clip = _sounds[soundName];
+        _soundsSource.Play();
     }
 
 
@@ -79,10 +88,10 @@ public class AudioController : MonoBehaviour
         string jsonAudioSettings = File.ReadAllText(Application.dataPath + "/AudioSettings.json");
         _audioSettings = JsonUtility.FromJson<AudioSettings>(jsonAudioSettings);
 
+        _musicSource.volume = _audioSettings.MusicVolume;
+        _soundsSource.volume = _audioSettings.SoundsVolume;
+
         _musicSlider.value = _audioSettings.MusicVolume;
         _soundsSlider.value = _audioSettings.SoundsVolume;
-
-        _musicAudio.volume = _audioSettings.MusicVolume;
-        _soundsAudio.volume = _audioSettings.SoundsVolume;
     }
 }

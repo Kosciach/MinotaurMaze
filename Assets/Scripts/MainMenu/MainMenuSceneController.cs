@@ -6,10 +6,12 @@ public class MainMenuSceneController : MonoBehaviour
 {
     public void StartGame()
     {
-        FaderController.Instance.FadeAndChangeScene("MainScene");
+        AudioController.Instance.PlaySound("ButtonClick");
+        SceneFaderController.Instance.FadeAndChangeScene("MainScene");
     }
     public void ExitGame()
     {
+        AudioController.Instance.PlaySound("ButtonClick");
         Application.Quit();
     }
 }

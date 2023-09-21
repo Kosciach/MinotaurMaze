@@ -13,6 +13,6 @@ public class GameOverScenesController : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
 
-        FaderController.Instance.FadeAndChangeScene("MainMenuScene");
+        SceneFaderController.Instance.FadeAndChangeScene("MainMenuScene");
     }
 }

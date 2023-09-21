@@ -8,7 +8,7 @@ public class PlayerControllerBase : MonoBehaviour
     protected PlayerStateMachine _playerStateMachine;
 
 
-    protected void OnAwake()
+    protected void Awake()
     {
         _playerStateMachine = transform.root.GetComponent<PlayerStateMachine>();
     }

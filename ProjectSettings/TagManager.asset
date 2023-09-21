@@ -4,8 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Music
-  - Sounds
+  - SoundsSlider
+  - MusicSlider
   layers:
   - Default
   - TransparentFX

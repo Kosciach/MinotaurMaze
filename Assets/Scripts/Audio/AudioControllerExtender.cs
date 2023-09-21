@@ -5,16 +5,16 @@ using UnityEngine.UI;
 
 public class AudioControllerExtender : MonoBehaviour
 {
-    public void ChangeMusicVolume(Slider choosenSlider)
+    public void ChangeMusicVolume(Slider slider)
     {
-        AudioController.Instance.ChangeMusicVolume(choosenSlider);
+        AudioController.Instance.ChangeMusicVolume(slider);
     }
-    public void ChangeSoundVolume(Slider choosenSlider)
+    public void ChangeSoundVolume(Slider slider)
     {
-        AudioController.Instance.ChangeSoundVolume(choosenSlider);
+        AudioController.Instance.ChangeSoundVolume(slider);
     }
-    public void PlayButtonSound()
+    public void PlayButtonSound(string soundName)
     {
-        AudioController.Instance.PlayButtonSound();
+        AudioController.Instance.PlaySound(soundName);
     }
 }

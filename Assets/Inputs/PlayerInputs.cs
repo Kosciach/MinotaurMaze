@@ -35,6 +35,51 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""MinotaurInsight"",
+                    ""type"": ""Button"",
+                    ""id"": ""a66ff51a-165c-44c3-8852-efcec55ae560"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Paralysis"",
+                    ""type"": ""Button"",
+                    ""id"": ""e38b5e4b-721f-42f3-9e06-069363f98cb6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Ghost"",
+                    ""type"": ""Button"",
+                    ""id"": ""30d49aa1-cbcd-4ada-b26b-8c0b5ad7b09f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PortalTracker"",
+                    ""type"": ""Button"",
+                    ""id"": ""9331b3c3-38a4-481c-a620-4e22269200e0"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Camoflauge"",
+                    ""type"": ""Button"",
+                    ""id"": ""62959fed-9912-4c69-b531-3e3a940c14a7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -92,6 +137,61 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""edcc206b-6c6e-43fd-b004-574d2ceeb461"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""MinotaurInsight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3b4b865b-8e4a-4f0f-bace-db9eb70308af"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Paralysis"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1a97bb25-c97a-4041-a6e7-a2bbe82472c8"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Ghost"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a34c2778-4d84-4405-9d52-b35169dfc968"",
+                    ""path"": ""<Keyboard>/4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""PortalTracker"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""57d3b956-277a-4ee4-83f8-4b94fb7e8c00"",
+                    ""path"": ""<Keyboard>/5"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Camoflauge"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -162,6 +262,11 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
+        m_Player_MinotaurInsight = m_Player.FindAction("MinotaurInsight", throwIfNotFound: true);
+        m_Player_Paralysis = m_Player.FindAction("Paralysis", throwIfNotFound: true);
+        m_Player_Ghost = m_Player.FindAction("Ghost", throwIfNotFound: true);
+        m_Player_PortalTracker = m_Player.FindAction("PortalTracker", throwIfNotFound: true);
+        m_Player_Camoflauge = m_Player.FindAction("Camoflauge", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -222,11 +327,21 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player;
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Move;
+    private readonly InputAction m_Player_MinotaurInsight;
+    private readonly InputAction m_Player_Paralysis;
+    private readonly InputAction m_Player_Ghost;
+    private readonly InputAction m_Player_PortalTracker;
+    private readonly InputAction m_Player_Camoflauge;
     public struct PlayerActions
     {
         private @PlayerInputs m_Wrapper;
         public PlayerActions(@PlayerInputs wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player_Move;
+        public InputAction @MinotaurInsight => m_Wrapper.m_Player_MinotaurInsight;
+        public InputAction @Paralysis => m_Wrapper.m_Player_Paralysis;
+        public InputAction @Ghost => m_Wrapper.m_Player_Ghost;
+        public InputAction @PortalTracker => m_Wrapper.m_Player_PortalTracker;
+        public InputAction @Camoflauge => m_Wrapper.m_Player_Camoflauge;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -239,6 +354,21 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                 @Move.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
                 @Move.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
                 @Move.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
+                @MinotaurInsight.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMinotaurInsight;
+                @MinotaurInsight.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMinotaurInsight;
+                @MinotaurInsight.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMinotaurInsight;
+                @Paralysis.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnParalysis;
+                @Paralysis.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnParalysis;
+                @Paralysis.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnParalysis;
+                @Ghost.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGhost;
+                @Ghost.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGhost;
+                @Ghost.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGhost;
+                @PortalTracker.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPortalTracker;
+                @PortalTracker.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPortalTracker;
+                @PortalTracker.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPortalTracker;
+                @Camoflauge.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCamoflauge;
+                @Camoflauge.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCamoflauge;
+                @Camoflauge.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCamoflauge;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -246,6 +376,21 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                 @Move.started += instance.OnMove;
                 @Move.performed += instance.OnMove;
                 @Move.canceled += instance.OnMove;
+                @MinotaurInsight.started += instance.OnMinotaurInsight;
+                @MinotaurInsight.performed += instance.OnMinotaurInsight;
+                @MinotaurInsight.canceled += instance.OnMinotaurInsight;
+                @Paralysis.started += instance.OnParalysis;
+                @Paralysis.performed += instance.OnParalysis;
+                @Paralysis.canceled += instance.OnParalysis;
+                @Ghost.started += instance.OnGhost;
+                @Ghost.performed += instance.OnGhost;
+                @Ghost.canceled += instance.OnGhost;
+                @PortalTracker.started += instance.OnPortalTracker;
+                @PortalTracker.performed += instance.OnPortalTracker;
+                @PortalTracker.canceled += instance.OnPortalTracker;
+                @Camoflauge.started += instance.OnCamoflauge;
+                @Camoflauge.performed += instance.OnCamoflauge;
+                @Camoflauge.canceled += instance.OnCamoflauge;
             }
         }
     }
@@ -298,5 +443,10 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
     public interface IPlayerActions
     {
         void OnMove(InputAction.CallbackContext context);
+        void OnMinotaurInsight(InputAction.CallbackContext context);
+        void OnParalysis(InputAction.CallbackContext context);
+        void OnGhost(InputAction.CallbackContext context);
+        void OnPortalTracker(InputAction.CallbackContext context);
+        void OnCamoflauge(InputAction.CallbackContext context);
     }
 }
