@@ -6,7 +6,7 @@ Maze is made out of 100 rooms that are later used to procedurally create a maze 
 <br>
 <h2 align="center">Rooms</h2>
 <p align="center">
-Each rooms is a prefab with 4walls, roof and a controller.<br>
+Each room is a prefab with 4walls, roof and a controller.<br>
 Before maze is generated 100 rooms are spawned to fill out the given space, and everyone of them is assigned to its slot in MazeGenerator.<br>
 Room controller has methods for removing walls and being visited, which sets it as visited and removes roof.
 </p>
