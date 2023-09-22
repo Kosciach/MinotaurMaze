@@ -16,8 +16,8 @@ In order to help player escape the maze, game provides 4 abilities, all with coo
 <br>
 <h2 align="center">Usage</h2>
 <p align="center">
-Each ability has its own input (1-4keys), which calls main Use method, that checks which ability is choosen and calls its Use method.<br>
-If cooldown is 0, Ability will call its method that has the actuall functionality and cooldown reset.<br>
+Each ability has its own input (1-4keys), which calls main Use method in PlayerAbilityController, that calls Use of choosen ability.<br> 
+This methods job is to check if cooldown is 0 and if true, call actuall ability functionality and cooldown reset.
 </p>
 
 <br>
