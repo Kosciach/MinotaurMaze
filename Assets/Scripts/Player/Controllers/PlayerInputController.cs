@@ -52,11 +52,10 @@ namespace PlayerControllers
         }
         private void GetAbilityInput()
         {
-            _inputs.Player.MinotaurInsight.performed += ctx => _playerStateMachine.Controllers.Abilities.UseAbility(AbilitiesEnum.MinotaurInsight);
+            _inputs.Player.MinotaurInsight.performed += ctx => _playerStateMachine.Controllers.Abilities.UseAbility(AbilitiesEnum.PullToTheLight);
             _inputs.Player.Paralysis.performed += ctx => _playerStateMachine.Controllers.Abilities.UseAbility(AbilitiesEnum.Paralysis);
             _inputs.Player.Ghost.performed += ctx => _playerStateMachine.Controllers.Abilities.UseAbility(AbilitiesEnum.Ghost);
             _inputs.Player.PortalTracker.performed += ctx => _playerStateMachine.Controllers.Abilities.UseAbility(AbilitiesEnum.PortalTracker);
-            _inputs.Player.Camoflauge.performed += ctx => _playerStateMachine.Controllers.Abilities.UseAbility(AbilitiesEnum.Camoflauge);
         }
 
 

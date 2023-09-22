@@ -8,13 +8,16 @@ namespace PlayerControllers.AbilitiesSystem
     public abstract class PlayerAbility : PlayerControllerBase
     {
         [Header("====Cooldown====")]
-        [SerializeField] float _cooldown;
-        [SerializeField] float _currentCooldown;
+        [SerializeField] protected float _cooldown;
+        [SerializeField] protected float _currentCooldown;
+
+        protected PlayerAbilitiesController _abilityController;
 
 
         private new void Awake()
         {
             base.Awake();
+            _abilityController = _playerStateMachine.Controllers.Abilities;
             _currentCooldown = _cooldown;
         }
         private void Update()
@@ -34,7 +37,6 @@ namespace PlayerControllers.AbilitiesSystem
             if (_currentCooldown > 0) return;
 
             UseAbility();
-            _currentCooldown = _cooldown;
         }
 
         protected abstract void UseAbility();

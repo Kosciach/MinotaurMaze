@@ -19,6 +19,7 @@ namespace MinotaurStateMachineSystem
         [Space(20)]
         [Header("====References====")]
         [SerializeField] Animator _animator; public Animator Animator { get { return _animator; } }
+        [SerializeField] Collider2D _collider; public Collider2D Collider { get { return _collider; } }
         [SerializeField] PlayerStateMachine _playerStateMachine; public PlayerStateMachine PlayerStateMachine { get { return _playerStateMachine; } }
         [SerializeField] Controllers _controllers; public Controllers Controllers { get { return _controllers; } }
 

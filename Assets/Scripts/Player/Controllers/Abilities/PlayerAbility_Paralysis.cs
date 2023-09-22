@@ -9,7 +9,19 @@ namespace PlayerControllers.AbilitiesSystem
     {
         protected override void UseAbility()
         {
+            _currentCooldown = _cooldown;
 
+            _playerStateMachine.MinotaurStateMachine.SetStateSwitch(MinotaurStateMachineSystem.StateSwitches.Stun);
+            _playerStateMachine.MinotaurStateMachine.Collider.enabled = false;
+            StartCoroutine(ResetMinotaurStun());
+        }
+
+
+        private IEnumerator ResetMinotaurStun()
+        {
+            yield return new WaitForSeconds(6);
+            _playerStateMachine.MinotaurStateMachine.SetStateSwitch(MinotaurStateMachineSystem.StateSwitches.Chase);
+            _playerStateMachine.MinotaurStateMachine.Collider.enabled = true;
         }
     }
 }

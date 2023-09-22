@@ -9,8 +9,8 @@ namespace PlayerControllers
     {
         [Header("====Settings====")]
         [SerializeField] LayerMask _rayMask;
-        [Range(25, 90)]
-        [SerializeField] int _fov = 25;
+        [Range(25, 360)]
+        [SerializeField] int _fov = 25; public int FOV { get { return _fov; } set { _fov = value; } }
         [Range(1, 25)]
         [SerializeField] float _lookDistance = 1;
         [SerializeField] float _density;

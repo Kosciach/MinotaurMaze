@@ -138,7 +138,7 @@ MonoBehaviour:
   - {fileID: 4938375628513416142}
   m_RendererFeatureMap: ce13fd3078a28844
   m_UseNativeRenderPass: 0
-  postProcessData: {fileID: 0}
+  postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
   shaders:
     blitPS: {fileID: 4800000, guid: c17132b1f77d20942aa75f8429c0f8bc, type: 3}
@@ -184,17 +184,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b3d386ba5cd94485973aee1479b272e, type: 3}
-  m_Name: Arrow
+  m_Name: Player
   m_EditorClassIdentifier: 
   m_Active: 1
   settings:
-    passTag: Arrow
+    passTag: Player
     Event: 1000
     filterSettings:
       RenderQueueType: 1
       LayerMask:
         serializedVersion: 2
-        m_Bits: 1024
+        m_Bits: 1032
       PassNames: []
     overrideMaterial: {fileID: 0}
     overrideMaterialPassIndex: 0

@@ -71,15 +71,6 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Camoflauge"",
-                    ""type"": ""Button"",
-                    ""id"": ""62959fed-9912-4c69-b531-3e3a940c14a7"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -181,17 +172,6 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                     ""action"": ""PortalTracker"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""57d3b956-277a-4ee4-83f8-4b94fb7e8c00"",
-                    ""path"": ""<Keyboard>/5"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Camoflauge"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -266,7 +246,6 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
         m_Player_Paralysis = m_Player.FindAction("Paralysis", throwIfNotFound: true);
         m_Player_Ghost = m_Player.FindAction("Ghost", throwIfNotFound: true);
         m_Player_PortalTracker = m_Player.FindAction("PortalTracker", throwIfNotFound: true);
-        m_Player_Camoflauge = m_Player.FindAction("Camoflauge", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -331,7 +310,6 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Paralysis;
     private readonly InputAction m_Player_Ghost;
     private readonly InputAction m_Player_PortalTracker;
-    private readonly InputAction m_Player_Camoflauge;
     public struct PlayerActions
     {
         private @PlayerInputs m_Wrapper;
@@ -341,7 +319,6 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
         public InputAction @Paralysis => m_Wrapper.m_Player_Paralysis;
         public InputAction @Ghost => m_Wrapper.m_Player_Ghost;
         public InputAction @PortalTracker => m_Wrapper.m_Player_PortalTracker;
-        public InputAction @Camoflauge => m_Wrapper.m_Player_Camoflauge;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -366,9 +343,6 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                 @PortalTracker.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPortalTracker;
                 @PortalTracker.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPortalTracker;
                 @PortalTracker.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPortalTracker;
-                @Camoflauge.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCamoflauge;
-                @Camoflauge.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCamoflauge;
-                @Camoflauge.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCamoflauge;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -388,9 +362,6 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                 @PortalTracker.started += instance.OnPortalTracker;
                 @PortalTracker.performed += instance.OnPortalTracker;
                 @PortalTracker.canceled += instance.OnPortalTracker;
-                @Camoflauge.started += instance.OnCamoflauge;
-                @Camoflauge.performed += instance.OnCamoflauge;
-                @Camoflauge.canceled += instance.OnCamoflauge;
             }
         }
     }
@@ -447,6 +418,5 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
         void OnParalysis(InputAction.CallbackContext context);
         void OnGhost(InputAction.CallbackContext context);
         void OnPortalTracker(InputAction.CallbackContext context);
-        void OnCamoflauge(InputAction.CallbackContext context);
     }
 }

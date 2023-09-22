@@ -49,15 +49,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "Camoflauge",
-                    "type": "Button",
-                    "id": "62959fed-9912-4c69-b531-3e3a940c14a7",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -157,17 +148,6 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "PortalTracker",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "57d3b956-277a-4ee4-83f8-4b94fb7e8c00",
-                    "path": "<Keyboard>/5",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Camoflauge",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

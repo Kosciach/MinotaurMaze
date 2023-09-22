@@ -12,10 +12,12 @@ namespace MinotaurStateMachineSystem
         public override void Enter()
         {
             _ctx.Animator.SetBool("IsStunned", true);
+            _ctx.Controllers.NavMesh.Stop();
         }
         public override void CheckStateChange()
         {
             if (_ctx.StateSwitch == StateSwitches.GameOver) ChangeState(_factory.GameOver());
+            else if (_ctx.StateSwitch == StateSwitches.Chase) ChangeState(_factory.Chase());
         }
         public override void Exit()
         {

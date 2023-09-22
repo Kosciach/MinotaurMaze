@@ -9,7 +9,7 @@ namespace PlayerControllers.AbilitiesSystem
     {
         [Header("====Settings====")]
         [SerializedDictionary("Enum", "Ability")]
-        [SerializeField] SerializedDictionary<AbilitiesEnum, PlayerAbility> _abilities;
+        [SerializeField] SerializedDictionary<AbilitiesEnum, PlayerAbility> _abilities; public SerializedDictionary<AbilitiesEnum, PlayerAbility> Abilities { get { return _abilities; } }
 
 
 
@@ -22,6 +22,6 @@ namespace PlayerControllers.AbilitiesSystem
 
     public enum AbilitiesEnum
     {
-        MinotaurInsight, Paralysis, Ghost, PortalTracker, Camoflauge
+        PullToTheLight, Paralysis, Ghost, PortalTracker
     }
 }
