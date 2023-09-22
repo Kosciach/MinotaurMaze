@@ -30,10 +30,3 @@ Coming 23.09.2023
 <h3 align="center">
   <a href="README.md">ReadMe</a>
 </h3>
-
-
-
-
-<h3 align="center">
-  <a href="README.md">ReadMe</a>
-</h3>
