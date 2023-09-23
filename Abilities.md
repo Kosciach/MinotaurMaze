@@ -23,7 +23,8 @@ This methods job is to check if cooldown is 0 and if true, call actuall ability 
 <br>
 <h2 align="center">UI</h2>
 <p align="center">
-Coming 23.09.2023
+All abilities have an icon represeting them, icons show what each ability does, what keyboard key it uses and displays cooldown.<br>
+When cooldown is more than 0 icon is dark and cooldown is visible, if cooldown is 0, icon is not dark and cooldown is hidden.
 </p>
 
 
