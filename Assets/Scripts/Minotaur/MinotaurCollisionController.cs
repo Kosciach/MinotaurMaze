@@ -16,6 +16,7 @@ public class MinotaurCollisionController : MinotaurControllerBase
     {
         if (!collision.CompareTag("Player")) return;
 
+        AudioController.Instance.PlaySound("MinotaurWin");
         _minotaurStateMachine.PlayerStateMachine.SetStateSwitch(PlayerStateMachineSystem.StateSwitches.GameOver);
         _minotaurStateMachine.SetStateSwitch(MinotaurStateMachineSystem.StateSwitches.GameOver);
         SceneFaderController.Instance.FadeAndChangeScene("MinotaurWinScene");

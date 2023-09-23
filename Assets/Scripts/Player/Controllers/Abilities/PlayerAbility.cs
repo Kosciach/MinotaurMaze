@@ -1,7 +1,9 @@
 using PlayerStateMachineSystem;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace PlayerControllers.AbilitiesSystem
 {
@@ -10,6 +12,8 @@ namespace PlayerControllers.AbilitiesSystem
         [Header("====Cooldown====")]
         [SerializeField] protected float _cooldown;
         [SerializeField] protected float _currentCooldown;
+        [SerializeField] private Image _icon;
+        [SerializeField] private TextMeshProUGUI _cooldownText;
 
         protected PlayerAbilitiesController _abilityController;
 
@@ -18,7 +22,7 @@ namespace PlayerControllers.AbilitiesSystem
         {
             base.Awake();
             _abilityController = _playerStateMachine.Controllers.Abilities;
-            _currentCooldown = _cooldown;
+            _currentCooldown = 0;
         }
         private void Update()
         {
@@ -30,6 +34,14 @@ namespace PlayerControllers.AbilitiesSystem
         {
             _currentCooldown -= 1 * Time.deltaTime;
             _currentCooldown = Mathf.Clamp(_currentCooldown, 0, _cooldown);
+
+
+            _cooldownText.text = _currentCooldown.ToString("F1");
+            _icon.color = new Color(0.1f, 0.1f, 0.1f, 1);
+            if (_currentCooldown > 0) return;
+
+            _cooldownText.text = "";
+            _icon.color = new Color(0.5f, 0.5f, 0.5f, 1);
         }
 
         public void Use()

@@ -11,18 +11,13 @@ public class AudioController : MonoBehaviour
 
     [Header("====References====")]
     [SerializeField] AudioSource _musicSource;
-    [SerializeField] AudioSource _soundsSource;
-    
+    [SerializedDictionary("SoundName", "Sound")]
+    [SerializeField] SerializedDictionary<string, AudioSource> _soundsSources;
+
 
     [Space(20)]
     [Header("====Debugs====")]
     [SerializeField] AudioSettings _audioSettings;
-
-
-    [Space(20)]
-    [Header("====Settings====")]
-    [SerializedDictionary("SoundName", "Sound")]
-    [SerializeField] SerializedDictionary<string, AudioClip> _sounds;
 
 
     private Slider _musicSlider;
@@ -50,7 +45,12 @@ public class AudioController : MonoBehaviour
             SaveSettings();
 
             _musicSource.volume = _audioSettings.MusicVolume;
-            _soundsSource.volume = _audioSettings.SoundsVolume;
+            foreach(var dictionaryElement in _soundsSources)
+            {
+                //AudioSource soundSource = dictionaryElement.Value;
+                //soundSource.volume = 0.5f;
+                dictionaryElement.Value.volume = _audioSettings.SoundsVolume;
+            }
 
             _musicSlider.value = _audioSettings.MusicVolume;
             _soundsSlider.value = _audioSettings.SoundsVolume;
@@ -67,14 +67,14 @@ public class AudioController : MonoBehaviour
     public void ChangeSoundVolume(Slider slider)
     {
         _audioSettings.SoundsVolume = slider.value;
-        _soundsSource.volume = _audioSettings.SoundsVolume;
+        foreach (var dictionaryElement in _soundsSources)
+            dictionaryElement.Value.volume = _audioSettings.SoundsVolume;
         SaveSettings();
     }
 
     public void PlaySound(string soundName)
     {
-        _soundsSource.clip = _sounds[soundName];
-        _soundsSource.Play();
+        _soundsSources[soundName].Play();
     }
 
 
@@ -89,7 +89,8 @@ public class AudioController : MonoBehaviour
         _audioSettings = JsonUtility.FromJson<AudioSettings>(jsonAudioSettings);
 
         _musicSource.volume = _audioSettings.MusicVolume;
-        _soundsSource.volume = _audioSettings.SoundsVolume;
+        foreach (var dictionaryElement in _soundsSources)
+            dictionaryElement.Value.volume = _audioSettings.SoundsVolume;
 
         _musicSlider.value = _audioSettings.MusicVolume;
         _soundsSlider.value = _audioSettings.SoundsVolume;

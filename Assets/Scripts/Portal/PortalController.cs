@@ -31,6 +31,7 @@ public class PortalController : MonoBehaviour
     {
         if (!collision.CompareTag("Player")) return;
 
+        AudioController.Instance.PlaySound("PortalEnter");
         _playerStateMachine.SetStateSwitch(PlayerStateMachineSystem.StateSwitches.GameOver);
         _playerStateMachine.MinotaurStateMachine.SetStateSwitch(MinotaurStateMachineSystem.StateSwitches.GameOver);
         SceneFaderController.Instance.FadeAndChangeScene("PlayerWinScene");

@@ -70,7 +70,6 @@ namespace PlayerStateMachineSystem
         public PlayerRotationController Rotation;
         public PlayerFlipController Flip;
         public PlayerMinotaurDetector MinotaurDetector;
-        public PlayerWalkParticleController WalkParticle;
         public PlayerAbilitiesController Abilities;
     }
 }

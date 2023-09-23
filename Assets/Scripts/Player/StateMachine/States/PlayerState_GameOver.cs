@@ -12,7 +12,6 @@ namespace PlayerStateMachineSystem
         public override void Enter()
         {
             _ctx.Controllers.Movement.Stop();
-            _ctx.Controllers.WalkParticle.CheckIfShouldPlay();
         }
         public override void CheckStateChange()
         {

@@ -13,9 +13,9 @@ namespace PlayerControllers.AbilitiesSystem
 
         protected override void UseAbility()
         {
+            AudioController.Instance.PlaySound("PortalTrail");
+            Instantiate(_portalTracker, _playerStateMachine.transform.position, Quaternion.identity);
             _currentCooldown = _cooldown;
-            _portalTracker.transform.position = transform.position;
-            _portalTracker.OnUse();
         }
     }
 }

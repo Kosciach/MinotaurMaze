@@ -11,6 +11,7 @@ namespace PlayerControllers.AbilitiesSystem
         {
             _currentCooldown = _cooldown;
 
+            AudioController.Instance.PlaySound("Paralysis");
             _playerStateMachine.MinotaurStateMachine.SetStateSwitch(MinotaurStateMachineSystem.StateSwitches.Stun);
             _playerStateMachine.MinotaurStateMachine.Collider.enabled = false;
             StartCoroutine(ResetMinotaurStun());

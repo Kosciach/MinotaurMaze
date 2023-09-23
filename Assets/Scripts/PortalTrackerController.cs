@@ -5,17 +5,17 @@ using UnityEngine.AI;
 
 public class PortalTrackerController : MonoBehaviour
 {
-    [Header("====References====")]
-    [SerializeField] NavMeshAgent _navMeshAgent;
-    [SerializeField] TrailRenderer _trail;
-    [SerializeField] PortalController _portal;
+    private NavMeshAgent _navMeshAgent;
+    private TrailRenderer _trail;
+    private PortalController _portal;
 
 
-    public void OnUse()
+    public void Awake()
     {
-        _trail.time = 0;
-        _trail.widthMultiplier = 0.1f;
-        _trail.time = 2;
+        _navMeshAgent = GetComponent<NavMeshAgent>();
+        _trail = GetComponent<TrailRenderer>();
+        _portal = FindObjectOfType<PortalController>();
+
         _navMeshAgent.SetDestination(_portal.transform.position);
         StartCoroutine(Finish());
     }
@@ -23,11 +23,16 @@ public class PortalTrackerController : MonoBehaviour
 
     private IEnumerator Finish()
     {
-        yield return new WaitForSeconds(6);
+        yield return new WaitForSeconds(3);
 
         LeanTween.value(_trail.widthMultiplier, 0, 1).setOnUpdate((float val) =>
         {
+            if(_trail == null) LeanTween.cancel(_trail.gameObject);
             _trail.widthMultiplier = val;
+        }).setOnComplete(() =>
+        {
+            LeanTween.cancel(_trail.gameObject);
+            Destroy(gameObject);
         });
     }
 }

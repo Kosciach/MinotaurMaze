@@ -19,6 +19,7 @@ namespace PlayerControllers.AbilitiesSystem
             _isInUse = true;
             _currentCooldown = _cooldown;
 
+            AudioController.Instance.PlaySound("Ghost");
             _playerCollider.enabled = false;
             LeanTween.color(_playerSprite.gameObject, new Color(1, 1, 1, 0.2f), 0.2f);
             StartCoroutine(ResetCollider());

@@ -11,6 +11,7 @@ namespace PlayerControllers.AbilitiesSystem
         {
             _currentCooldown = _cooldown;
 
+            AudioController.Instance.PlaySound("PullToTheLight");
             LeanTween.value(_playerStateMachine.Controllers.Flashlight.FOV, 360, 0.5f).setOnUpdate((float val) =>
             {
                 _playerStateMachine.Controllers.Flashlight.FOV = (int)val;
